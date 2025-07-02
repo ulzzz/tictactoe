@@ -9,21 +9,28 @@ interface GameControlsProps {
 
 export const GameControls = ({ onReset, currentPlayer, winner, isDraw }: GameControlsProps) => {
   return (
-    <div className="flex flex-col items-center gap-4 mt-8">
-      <div className="text-xl font-semibold h-8">
+    <div className="flex flex-col items-center gap-4 mt-6">
+      <div className="text-2xl font-medium h-10 bg-white/50 px-6 py-1 rounded-full backdrop-blur-sm border border-white/20">
         {winner ? (
-          <span className="text-green-600">Player {winner} wins!</span>
+          <span>
+            {winner} Wins! 🎉
+          </span>
         ) : isDraw ? (
-          <span className="text-yellow-600">It's a draw!</span>
+          <span>
+            It's a draw! 🤝
+          </span>
         ) : (
-          <span>Player <span className={currentPlayer === "X" ? "text-blue-600" : "text-red-600"}>{currentPlayer}</span>'s turn</span>
+          <span className="flex items-center gap-2">
+            <span className="text-gray-700">Next player:</span> 
+            <span className="text-3xl">{currentPlayer}</span>
+          </span>
         )}
       </div>
       <Button 
         onClick={onReset} 
-        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+        className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 text-lg font-semibold rounded-full transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
       >
-        {winner || isDraw ? "Play Again" : "Reset Game"}
+        {winner || isDraw ? "Play Again 🎮" : "Reset Game 🔄"}
       </Button>
     </div>
   );
