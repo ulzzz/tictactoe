@@ -139,7 +139,7 @@ export default function TicTacToePage() {
           <DialogContent className="sm:max-w-[425px] bg-white/95 backdrop-blur-sm border-2 animate-popup">
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold text-center">
-                {isDraw ? "It&apos;s a Draw! 🤝" : `${getPlayerEmoji(winner)} Wins! 🎉`}
+                {isDraw ? "It's a Draw! 🤝" : `${getPlayerEmoji(winner)} Wins! 🎉`}
               </DialogTitle>
               <DialogDescription className="text-center pt-4 text-lg text-gray-700">
                 {isDraw 

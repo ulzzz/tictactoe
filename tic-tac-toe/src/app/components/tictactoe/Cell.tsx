@@ -13,7 +13,7 @@ export const Cell = ({ value, onClick, isWinning, disabled }: CellProps) => {
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "w-24 h-24 border border-indigo-100 text-5xl flex items-center justify-center",
+        "w-16 h-16 sm:w-24 sm:h-24 border border-indigo-100 text-3xl sm:text-5xl flex items-center justify-center",
         "transition-all duration-300 ease-in-out transform",
         "focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:hover:bg-white/80",
         "relative overflow-hidden group",
@@ -38,7 +38,7 @@ export const Cell = ({ value, onClick, isWinning, disabled }: CellProps) => {
     >
       <span className={cn(
         "transform transition-all duration-300",
-        !disabled && !value && "group-hover:scale-110",
+        !disabled && !value && "group-hover:scale-105 sm:group-hover:scale-110",
         value && [
           "animate-bounce-in",
           value === "🦊" 
