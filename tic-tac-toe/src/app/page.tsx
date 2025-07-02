@@ -43,7 +43,6 @@ export default function TicTacToePage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-xl shadow-xl p-6 md:p-8">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">Tic Tac Toe</h1>
-        <p className="text-center text-gray-600 mb-8">Built with Next.js, Tailwind CSS, and shadcn</p>
         
         <div className="flex justify-center mb-8">
           <Board 
