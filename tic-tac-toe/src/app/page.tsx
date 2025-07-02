@@ -4,6 +4,13 @@ import { useState, useEffect } from "react";
 import { Board } from "./components/tictactoe/Board";
 import { GameControls } from "./components/tictactoe/GameControls";
 import { calculateWinner, isBoardFull } from "../utils/gameLogic";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function TicTacToePage() {
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null));
@@ -11,6 +18,7 @@ export default function TicTacToePage() {
   const [winner, setWinner] = useState<string | null>(null);
   const [winningLine, setWinningLine] = useState<number[] | null>(null);
   const [isDraw, setIsDraw] = useState<boolean>(false);
+  const [showDialog, setShowDialog] = useState<boolean>(false);
 
   const handleClick = (index: number) => {
     if (squares[index] || winner || isDraw) return;
@@ -27,6 +35,7 @@ export default function TicTacToePage() {
     setWinner(null);
     setWinningLine(null);
     setIsDraw(false);
+    setShowDialog(false);
   };
 
   useEffect(() => {
@@ -34,8 +43,10 @@ export default function TicTacToePage() {
     if (newWinner) {
       setWinner(newWinner);
       setWinningLine(line);
+      setShowDialog(true);
     } else if (isBoardFull(squares)) {
       setIsDraw(true);
+      setShowDialog(true);
     }
   }, [squares]);
 
@@ -65,6 +76,29 @@ export default function TicTacToePage() {
         <p>Player X: <span className="text-blue-600">Blue</span> | Player O: <span className="text-red-600">Red</span></p>
         <p className="mt-2">Winning cells are highlighted in green</p>
       </div>
+
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center">
+              {isDraw ? "It's a Draw!" : `Player ${winner} Wins!`}
+            </DialogTitle>
+            <DialogDescription className="text-center pt-4">
+              {isDraw 
+                ? "The game ended in a draw. Would you like to play again?" 
+                : `Congratulations Player ${winner}! Would you like to play again?`}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={resetGame}
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Play Again
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
