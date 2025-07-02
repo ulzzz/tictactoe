@@ -17,7 +17,7 @@ export const GameControls = ({ onReset, currentPlayer, winner, isDraw }: GameCon
           </span>
         ) : isDraw ? (
           <span>
-            It's a draw! 🤝
+            It&apos;s a draw! 🤝
           </span>
         ) : (
           <span className="flex items-center gap-2">

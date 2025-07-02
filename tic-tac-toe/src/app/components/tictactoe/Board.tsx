@@ -1,5 +1,4 @@
 import { Cell } from "./Cell";
-import { calculateWinner } from "@/utils/gameLogic";
 
 interface BoardProps {
   squares: (string | null)[];

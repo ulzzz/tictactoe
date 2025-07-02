@@ -23,7 +23,7 @@ const fireworks = () => {
   const animationEnd = Date.now() + duration;
   const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-  const interval: any = setInterval(function() {
+  const interval: ReturnType<typeof setInterval> = setInterval(function() {
     const timeLeft = animationEnd - Date.now();
 
     if (timeLeft <= 0) {
@@ -98,7 +98,7 @@ export default function TicTacToePage() {
         <div className="max-w-md w-full bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl p-8 border border-white/20">
           <h1 className="text-4xl font-bold text-center mb-6 animate-pulse">
             <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              Emilio's
+              Emilio&apos;s
             </span>
             <span className="block text-5xl mt-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
               Tic Tac Toe
@@ -139,7 +139,7 @@ export default function TicTacToePage() {
           <DialogContent className="sm:max-w-[425px] bg-white/95 backdrop-blur-sm border-2 animate-popup">
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold text-center">
-                {isDraw ? "It's a Draw! 🤝" : `${getPlayerEmoji(winner)} Wins! 🎉`}
+                {isDraw ? "It&apos;s a Draw! 🤝" : `${getPlayerEmoji(winner)} Wins! 🎉`}
               </DialogTitle>
               <DialogDescription className="text-center pt-4 text-lg text-gray-700">
                 {isDraw 
