@@ -141,6 +141,28 @@
   100% { transform: scale(4); opacity: 0; }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes popup-show {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 .animate-cell-pop {
   animation: cell-pop 0.3s ease-out;
 }
@@ -151,4 +173,46 @@
 
 .animate-ripple {
   animation: ripple 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  animation: gradient-shift 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+.animate-slide {
+  animation: slide 60s linear infinite;
+}
+
+.animate-popup {
+  animation: popup-show 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bg-pattern {
+  background-image: 
+    radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.floating-shapes::before,
+.floating-shapes::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-shapes::after {
+  width: 80px;
+  height: 80px;
+  background: rgba(168, 85, 247, 0.1);
+  animation-delay: -3s;
 }
